@@ -1,9 +1,6 @@
 package com.service.projet_service.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -15,6 +12,7 @@ import java.sql.Date;
 @Setter
 @Getter
 @Entity
+@Table(name = "project")
 public class Project {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -24,5 +22,7 @@ public class Project {
     private Date projectStartDate;
     private Date projectEndDate;
     private double projectCost;
+
+
 
 }

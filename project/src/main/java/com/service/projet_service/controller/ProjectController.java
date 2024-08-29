@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
+@RequestMapping("/api/project")
 public class ProjectController {
 
     @Autowired
@@ -31,7 +32,7 @@ public class ProjectController {
     public List<Project> getAllProject() {
         return projectService.getAllProjects();
     }
-    @GetMapping("get_by_id/{id}")
+    @GetMapping("get_project_by_id/{id}")
     public Project getProjectById(@PathVariable int id) {
         return projectService.getProjectById(id);
     }
@@ -42,11 +43,4 @@ public class ProjectController {
         return "Project updated";
     }
 
-
-
-
-    @GetMapping("/project")
-    public String string() {
-        return "Hello World";
-    }
 }

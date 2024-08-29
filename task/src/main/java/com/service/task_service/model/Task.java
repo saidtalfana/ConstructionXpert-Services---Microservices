@@ -22,6 +22,10 @@ public class Task {
     private String taskDescription;
     private Date taskStart;
     private Date taskEnd;
+
+    @Enumerated(EnumType.STRING)
     private Taskstatus taskStatus;
+
+    private Integer project_id;
 
 }

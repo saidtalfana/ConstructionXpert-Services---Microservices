@@ -1,6 +1,7 @@
 package com.service.task_service.model;
 
 import com.service.task_service.enums.Taskstatus;
+import com.service.task_service.feignClient.Project;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -22,10 +23,10 @@ public class Task {
     private String taskDescription;
     private Date taskStart;
     private Date taskEnd;
-
     @Enumerated(EnumType.STRING)
     private Taskstatus taskStatus;
 
-    private Integer project_id;
-
+    private Long project_id;
+    @Transient
+    private Project project;
 }

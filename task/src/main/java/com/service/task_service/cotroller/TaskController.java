@@ -19,13 +19,15 @@ public class TaskController {
     public Task addTask(@RequestBody Task task) {
         return taskService.addTask(task);
     }
+
     @GetMapping("get_all_task/{project_id}")
     public List<Task> getAllTasks(@PathVariable Integer project_id) {
         return taskService.getTaskByProjectId(project_id);
     }
-    @DeleteMapping("/delete_task")
-    public void deleteTask(@PathVariable Integer project_id) {
-        taskService.deleteTask(project_id);
+    @DeleteMapping("/delete_task/{id}")
+    public String deleteTask(@PathVariable Integer id) {
+        taskService.deleteTask(id);
+        return "task with id " + id + " deleted";
     }
     @GetMapping("/get_task_by_id/{task_id}")
     public Task getTask(@PathVariable Integer task_id) {

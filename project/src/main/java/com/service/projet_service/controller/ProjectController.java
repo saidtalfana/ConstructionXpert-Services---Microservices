@@ -16,6 +16,11 @@ public class ProjectController {
 
 
 
+
+    @GetMapping("get_project_by_id/{id}")
+    public Project getProjectById(@PathVariable Integer id){
+        return projectService.getProjectById(id);
+    }
     @PostMapping("/add_project")
     public String addProject(@RequestBody Project project) {
         projectService.addProject(project);
@@ -32,10 +37,7 @@ public class ProjectController {
     public List<Project> getAllProject() {
         return projectService.getAllProjects();
     }
-    @GetMapping("get_project_by_id/{id}")
-    public Project getProjectById(@PathVariable int id) {
-        return projectService.getProjectById(id);
-    }
+
 
     @PutMapping("/update_project/{id}")
     public String updateProject(@RequestBody Project project, @PathVariable int id) {

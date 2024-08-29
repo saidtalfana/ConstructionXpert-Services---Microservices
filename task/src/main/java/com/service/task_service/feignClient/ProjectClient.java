@@ -1,12 +1,12 @@
 package com.service.task_service.feignClient;
-
+import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
-//@FeignClient(name = "project")
+@FeignClient(name = "project", url = "http://localhost:8080")
 public interface ProjectClient {
-    @GetMapping("/api/project/get_project_by_id/{projectId}")
-    Project getProjectById(@PathVariable Long projectId);
+    @GetMapping("/api/project/get_project_by_id/{project_id}")
+    Project getProjectById(@PathVariable Long project_id);
 
 }
 

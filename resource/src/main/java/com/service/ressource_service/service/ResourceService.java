@@ -10,8 +10,7 @@ import java.util.List;
 @Service
 public class ResourceService {
 
-    @Autowired
-    private ResourceRepository resourceRepository;
+
 
     public Resource addResource(Resource resource) {
         return resourceRepository.save(resource);

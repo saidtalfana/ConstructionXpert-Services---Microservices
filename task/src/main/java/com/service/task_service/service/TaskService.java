@@ -1,6 +1,8 @@
 package com.service.task_service.service;
 
 import com.service.task_service.Reposirory.TaskRepository;
+import com.service.task_service.feignClient.Project;
+import com.service.task_service.feignClient.ProjectClient;
 import com.service.task_service.model.Task;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -12,14 +14,18 @@ public class TaskService {
 
     @Autowired
     private TaskRepository taskRepository;
-//    @Autowired
-//    private ProjectRepository projectRepository;
+    @Autowired
+    private ProjectClient projectClient;
 
     public Task addTask(Task task) {
-//        Project project = projectRepository.findById(id);
-
-        return taskRepository.save(task);
+        if (projectClient.getProjectById(task.getProject_id()) != null) {
+            Project project = projectClient.getProjectById(task.getProject_id());
+            task.setProject(project);
+            return taskRepository.save(task);
+        }
+        throw new RuntimeException("Project not found");
     }
+
     public void deleteTask(Integer id) {
         taskRepository.deleteById(id);
     }
@@ -28,7 +34,8 @@ public class TaskService {
     }
 
     public Task getTaskById(Integer id) {
-        return taskRepository.findById(id).get();
+       Task task=taskRepository.findById(id).get();
+       return task;
     }
 
     public Task updateTask(Task task,Integer id) {

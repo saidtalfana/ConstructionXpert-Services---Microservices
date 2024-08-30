@@ -33,12 +33,12 @@ public class ProjectService {
     }
     public Project updateProject(Project project,Integer id) {
         Project oldProject = projectRepository.findById(id).get();
-        project.setProjectName(oldProject.getProjectName());
-        project.setProjectDescription(oldProject.getProjectDescription());
-        project.setProjectStartDate(oldProject.getProjectStartDate());
-        project.setProjectEndDate(oldProject.getProjectEndDate());
-        project.setProjectCost(oldProject.getProjectCost());
-        return projectRepository.save(project);
+        oldProject.setProjectName(project.getProjectName());
+        oldProject.setProjectDescription(project.getProjectDescription());
+        oldProject.setProjectStartDate(project.getProjectStartDate());
+        oldProject.setProjectEndDate(project.getProjectEndDate());
+        oldProject.setProjectCost(project.getProjectCost());
+        return projectRepository.save(oldProject);
 
     }
 

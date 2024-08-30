@@ -40,11 +40,12 @@ public class TaskService {
 
     public Task updateTask(Task task,Integer id) {
         Task existingTask = taskRepository.findById(id).get();
-        task.setTaskName(existingTask.getTaskName());
-        task.setTaskDescription(existingTask.getTaskDescription());
-        task.setTaskStart(existingTask.getTaskStart());
-        task.setTaskEnd(existingTask.getTaskEnd());
-        task.setTaskStatus(existingTask.getTaskStatus());
-        return taskRepository.save(task);
+        existingTask.setTaskName(task.getTaskName());
+        existingTask.setTaskDescription(task.getTaskDescription());
+        existingTask.setTaskStart(task.getTaskStart());
+        existingTask.setTaskEnd(task.getTaskEnd());
+        existingTask.setTaskStatus(task.getTaskStatus());
+        existingTask.setProject_id(task.getProject_id());
+        return taskRepository.save(existingTask);
     }
 }

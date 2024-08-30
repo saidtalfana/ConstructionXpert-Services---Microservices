@@ -38,8 +38,5 @@ public class TaskController {
         return taskService.updateTask(task,id);
     }
 
-    @GetMapping("/task")
-    public String string() {
-        return "Hello task service";
-    }
+
 }

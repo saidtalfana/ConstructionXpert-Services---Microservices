@@ -37,10 +37,10 @@ private ProjectClient projectClient;
     public Resource updateResource(Resource resource,Integer id) {
 
         Resource existingResource = resourceRepository.findById(id).get();
-        resource.setResourceName(existingResource.getResourceName());
-        resource.setResourceType(existingResource.getResourceType());
-        resource.setQuantity(existingResource.getQuantity());
-        resource.setProviderInformation(existingResource.getProviderInformation());
-        return resourceRepository.save(resource);
+        existingResource.setResourceName(resource.getResourceName());
+        existingResource.setResourceType(resource.getResourceType());
+        existingResource.setQuantity(resource.getQuantity());
+        existingResource.setProviderInformation(resource.getProviderInformation());
+        return resourceRepository.save(existingResource);
     }
 }

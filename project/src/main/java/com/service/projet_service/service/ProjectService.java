@@ -16,11 +16,16 @@ public class ProjectService {
     public Project addProject(Project project) {
         return projectRepository.save(project);
     }
-    public void deleteProject(Project project) {
-        projectRepository.delete(project);
+
+    public void deleteProject(String projectName) {
+        projectRepository.deleteProjectByName(projectName);
     }
     public List<Project> getAllProjects() {
         return projectRepository.findAll();
+    }
+
+    public void deleteProjectById(Integer id) {
+        projectRepository.deleteById(id);
     }
 
     public Project getProjectById(int id) {

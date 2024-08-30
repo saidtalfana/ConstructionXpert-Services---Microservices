@@ -4,7 +4,7 @@ CREATE TABLE task (
                       task_description TEXT,
                       task_start DATE,
                       task_end DATE,
-                      task_status ENUM('Pending', 'In_Progress', 'Completed') NOT NULL ,
+                      task_status ENUM('not_started', 'In_Progress', 'Completed') NOT NULL ,
                       project_id BIGINT NOT NULL
 )
 

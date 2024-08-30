@@ -20,7 +20,7 @@ public class RessourceController {
        Resource resource1= resourceService.addResource(resource);
         return resource1;
     }
-    @GetMapping("get_all_resources")
+    @GetMapping("get_all_resources/{task_id}")
     public List<Resource> getAllResources(@PathVariable Integer task_id) {
         return resourceService.getAllResourcesByTaskId(task_id);
     }
@@ -30,10 +30,10 @@ public class RessourceController {
         return "resource was deleted";
     }
 
-    @PutMapping("/update_resource")
+    @PutMapping("/update_resource/{id}")
     public Resource updateResource(@PathVariable Integer id, @RequestBody Resource resource) {
-       Resource resource1= resourceService.updateResource(resource,id);
-        return resource1;
+        return resourceService.updateResource(resource,id);
+
     }
 
 

@@ -34,8 +34,8 @@ public class TaskService {
     }
 
     public Task getTaskById(Integer id) {
-       Task task=taskRepository.findById(id).get();
-       return task;
+       return taskRepository.findById(id).get();
+
     }
 
     public Task updateTask(Task task,Integer id) {

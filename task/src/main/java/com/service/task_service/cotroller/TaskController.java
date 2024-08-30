@@ -30,7 +30,7 @@ public class TaskController {
         return "task with id " + id + " deleted";
     }
     @GetMapping("/get_task_by_id/{task_id}")
-    public Task getTask(@PathVariable Integer task_id) {
+    public Task getTaskById(@PathVariable Integer task_id) {
         return taskService.getTaskById(task_id);
     }
     @PutMapping("update_task/{id}")

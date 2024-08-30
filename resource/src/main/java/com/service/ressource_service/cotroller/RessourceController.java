@@ -9,15 +9,16 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
+@RequestMapping("/api/resource")
 public class RessourceController {
 
     @Autowired
     private ResourceService resourceService;
 
     @PostMapping("add_ressource")
-    public String addressource(@RequestBody Resource resource) {
-        resourceService.addResource(resource);
-        return "success";
+    public Resource addressource(@RequestBody Resource resource) {
+       Resource resource1= resourceService.addResource(resource);
+        return resource1;
     }
     @GetMapping("get_all_resources")
     public List<Resource> getAllResources(@PathVariable Integer task_id) {

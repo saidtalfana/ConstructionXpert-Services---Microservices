@@ -2,6 +2,7 @@ package com.service.projet_service.controller;
 
 import com.service.projet_service.model.Project;
 import com.service.projet_service.service.ProjectService;
+import jakarta.annotation.security.RolesAllowed;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -13,7 +14,6 @@ public class ProjectController {
 
     @Autowired
     private ProjectService projectService;
-
 
 
 
